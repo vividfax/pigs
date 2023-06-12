@@ -37,10 +37,10 @@ class FoodTile {
         rect(0, 0, this.w, this.w, 3);
 
         noStroke();
-        fill(palette.black);
-        ellipse(0, 0, this.w/2);
+        // fill(palette.light);
+        // ellipse(0, 0, this.w/2);
         // if (this.type > 0 && this.type <= 3) image(images.patterns[this.type-1], 0, 0, this.w/2, this.w/2);
-        fill(palette.light);
+        fill(palette.black);
         textSize(this.w/3);
         if (this.type > 0) text(this.type, 0, -this.w*0.08);
 

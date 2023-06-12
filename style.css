@@ -10,7 +10,7 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #332B2A;
-    color: #fff;
+    color: #FFD5D0;
     font-family: "Bagel Fat One", sans-serif;
 }
 
@@ -29,6 +29,7 @@ canvas {
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
+    font-family: "Bagel Fat One", sans-serif;
 }
 
 button {

@@ -65,18 +65,18 @@ class Pig {
         image(images.pig, 0, 0, this.w*0.95, this.w*0.95);
         if (this.x == this.gridSize-1 || this.y == this.gridSize-1) scale(-1, 1);
 
-        fill(palette.black);
-        stroke(palette.light);
-        ellipse(0, 0, this.w/3);
+        // fill(palette.black);
+        // stroke(palette.light);
+        // ellipse(0, 0, this.w/3);
 
         // for (let i = 0; i < this.types.length; i++) {
         //     if (this.types[i] > 0 && this.types[i] <= 3) image(images.patterns[this.types[i]-1], 0, 0, this.w/2, this.w/2);
         // }
 
         noStroke();
-        fill(palette.light);
+        fill(palette.black);
         textSize(this.w/4);
-        if (this.type > 0) text(this.type, 0, -this.w*0.06);
+        if (this.type > 0) text(this.type, 0, -this.w*0.08);
         fill(palette.light);
         if (this.fed) fill(palette.black);
         if (this.x == this.gridSize-1 || this.y == this.gridSize-1) text(this.want, -this.w/2.8, -this.w/3);
