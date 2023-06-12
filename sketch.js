@@ -1,0 +1,126 @@
+let palette = {
+    white: "#FFF2F0",
+    light: "#FFD5D0",
+    mid: "#FF5E48",
+    dark: "#945F59",
+    black: "#332B2A",
+};
+
+let size = 500;
+let mobile = false;
+
+let grid;
+
+function setup() {
+
+    for (let colour in palette) {
+        palette[colour] = color(palette[colour]);
+    }
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        size = displayWidth < displayHeight ? displayWidth : displayHeight;
+        size -= 20;
+        mobile = true;
+    }
+
+    setupTouchEvents();
+    setupSwipe();
+
+    createCanvas(size, size);
+    textAlign(CENTER, CENTER);
+    noStroke();
+
+    grid = new Grid();
+}
+
+function draw() {
+
+    update();
+    display();
+}
+
+function update() {
+
+    grid.update();
+}
+
+function display() {
+
+    background(palette.black);
+    grid.display();
+}
+
+function keyPressed() {
+
+    if (keyCode === UP_ARROW) {
+        grid.move("up");
+    } else if (keyCode === DOWN_ARROW) {
+        grid.move("down");
+    } else if (keyCode === LEFT_ARROW) {
+        grid.move("left");
+    } else if (keyCode === RIGHT_ARROW) {
+        grid.move("right");
+    }
+}
+
+function swiped(event) {
+
+    var msg = "swipe";
+
+    if (event.direction == 8) {
+        msg = "you swiped up";
+    } else if (event.direction == 16) {
+        msg = "you swiped down";
+    } else if (event.direction == 2) {
+        msg = "you swiped left";
+    } else if (event.direction == 4) {
+        msg = "you swiped right";
+    }
+
+    console.log(msg);
+}
+
+function mousePressed() {
+
+}
+
+function touchStarted() {
+
+    mousePressed();
+}
+
+function setupTouchEvents() {
+
+    canvas.addEventListener("gesturestart", absorbEvent);
+    canvas.addEventListener("gesturechange", absorbEvent);
+    canvas.addEventListener("gestureend", absorbEvent);
+    canvas.addEventListener("touchstart", absorbEvent);
+    canvas.addEventListener("touchend", absorbEvent);
+    canvas.addEventListener("touchmove", absorbEvent);
+    canvas.addEventListener("touchcancel", absorbEvent);
+}
+
+function absorbEvent(event) {
+
+    event.preventDefault();
+    event.returnValue = false;
+}
+
+function isTouchDevice() {
+
+    return (('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0));
+}
+
+function setupSwipe() {
+
+    let options = {
+        preventDefault: true
+    };
+    let hammer = new Hammer(canvas, options);
+    hammer.get('swipe').set({
+        direction: Hammer.DIRECTION_ALL
+    });
+    hammer.on("swipe", swiped);
+}

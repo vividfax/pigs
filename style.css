@@ -1,0 +1,57 @@
+/* @font-face {
+    font-family: "Oxanium";
+    src: url("./fonts/Oxanium-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #332B2A;
+    color: #fff;
+    /* font-family: "Oxanium", sans-serif; */
+}
+
+canvas {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#p5_loading {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+button {
+    margin: auto;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2rem;
+    color: #252627;
+    background-color: #BFB48F;
+    display: none;
+    /* font-family: "Oxanium", sans-serif; */
+    font-size: 1.5rem;
+}
+
+button:hover {
+    color: #252627;
+    background-color: #F2EFE9;
+}
