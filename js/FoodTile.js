@@ -25,9 +25,9 @@ class FoodTile {
         translate(this.x*this.w+this.w/2, this.y*this.w+this.w/2);
 
         fill(palette.light);
-        ellipse(0, 0, 40);
+        ellipse(0, 0, this.w/2);
         fill(palette.black);
-        textSize(30);
+        textSize(this.w/3);
         text(this.type, 0, 0);
 
         pop();

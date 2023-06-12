@@ -65,19 +65,15 @@ function keyPressed() {
 
 function swiped(event) {
 
-    var msg = "swipe";
-
     if (event.direction == 8) {
-        msg = "you swiped up";
+        grid.move("up");
     } else if (event.direction == 16) {
-        msg = "you swiped down";
+        grid.move("down");
     } else if (event.direction == 2) {
-        msg = "you swiped left";
+        grid.move("left");
     } else if (event.direction == 4) {
-        msg = "you swiped right";
+        grid.move("right");
     }
-
-    console.log(msg);
 }
 
 function mousePressed() {
