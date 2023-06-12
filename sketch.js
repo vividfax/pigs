@@ -10,6 +10,18 @@ let size = 500;
 let mobile = false;
 
 let grid;
+let images = {};
+
+function preload() {
+
+    images.pig = loadImage("./images/pig.png");
+
+    images.pigs = [];
+    for (let i = 0; i < 4; i++) images.pigs.push(loadImage("./images/pig-"+i+".png"));
+
+    images.patterns = [];
+    for (let i = 0; i < 4; i++) images.patterns.push(loadImage("./images/pattern-"+i+".png"));
+}
 
 function setup() {
 
@@ -29,6 +41,7 @@ function setup() {
     createCanvas(size, size);
     textAlign(CENTER, CENTER);
     noStroke();
+    imageMode(CENTER);
 
     grid = new Grid();
 }

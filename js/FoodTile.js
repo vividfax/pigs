@@ -8,6 +8,8 @@ class FoodTile {
         this.w = size/gridSize;
 
         this.type = int(random(3))+1;
+        this.types = [];
+        this.types.push(this.type);
     }
 
     update() {
@@ -19,6 +21,11 @@ class FoodTile {
         this.type = int;
     }
 
+    addType(types) {
+
+        this.types = types;
+    }
+
     display() {
 
         push();
@@ -26,6 +33,7 @@ class FoodTile {
 
         fill(palette.light);
         ellipse(0, 0, this.w/2);
+        // if (this.type > 0 && this.type <= 3) image(images.patterns[this.type-1], 0, 0, this.w/2, this.w/2);
         fill(palette.black);
         textSize(this.w/3);
         text(this.type, 0, 0);

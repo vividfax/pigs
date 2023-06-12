@@ -38,11 +38,15 @@ class Grid {
                 if (i == 0 || i == this.size-1) continue;
                 for (let j = 0; j < this.grid[i].length; j++) {
                     let targetType = 0;
+                    let targetTypes = [];
                     if (this.grid[i][j+1] != undefined) {
                         targetType = this.grid[i][j+1].type;
+                        targetTypes = this.grid[i][j+1].types;
                         this.grid[i][j+1].type = 0;
+                        this.grid[i][j+1].types = [];
                     }
                     this.grid[i][j].setType(targetType);
+                    this.grid[i][j].addType(targetTypes);
                 }
             }
         } else if (direction == "down") {
