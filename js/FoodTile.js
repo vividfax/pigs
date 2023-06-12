@@ -33,8 +33,8 @@ class FoodTile {
 
         fill(palette.light);
         stroke(palette.black);
-        rect(0, 0, this.w, this.w);
-        strokeWeight(2);
+        strokeWeight(3);
+        rect(0, 0, this.w, this.w, 3);
 
         noStroke();
         fill(palette.black);
