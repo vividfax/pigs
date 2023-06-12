@@ -128,6 +128,8 @@ class Grid {
         if (maxFood > maxPig || maxFood <= 0 || !matchesFood) {
             this.gameOver = true;
             newGameButton.style("display", "inline");
+            if (maxFood <= 0) newGameButton.html("New game");
+            else newGameButton.html("Try again");
         }
     }
 
