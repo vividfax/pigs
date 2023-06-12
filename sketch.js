@@ -42,6 +42,7 @@ function setup() {
     textAlign(CENTER, CENTER);
     noStroke();
     imageMode(CENTER);
+    rectMode(CENTER);
 
     grid = new Grid();
 }

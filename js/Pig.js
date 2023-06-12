@@ -62,19 +62,23 @@ class Pig {
         push();
         translate(this.x*this.w+this.w/2, this.y*this.w+this.w/2);
 
-        fill(palette.light);
-        ellipse(0, 0, this.w/2);
+        image(images.pig, 0, 0, this.w, this.w);
+
+        fill(palette.black);
+        stroke(palette.light);
+        ellipse(0, 0, this.w/3);
 
         // for (let i = 0; i < this.types.length; i++) {
         //     if (this.types[i] > 0 && this.types[i] <= 3) image(images.patterns[this.types[i]-1], 0, 0, this.w/2, this.w/2);
         // }
 
-        fill(palette.black);
-        textSize(this.w/3);
+        noStroke();
+        fill(palette.light);
+        textSize(this.w/4);
         text(this.type, 0, 0);
         fill(palette.light);
-        if (this.fed) fill(palette.dark);
-        text(this.want, 0, -this.w/2.8);
+        if (this.fed) fill(palette.black);
+        text(this.want, this.w/2.8, -this.w/3.5);
 
         pop();
     }
