@@ -26,7 +26,6 @@ class Pig {
         if (this.fake) return;
 
         if (this.want == int && !this.fed) {
-            this.type = 0;
             this.fed = true;
         } else {
             this.type += int;
