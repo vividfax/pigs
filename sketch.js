@@ -6,7 +6,7 @@ let palette = {
     black: "#332B2A",
 };
 
-let size = 500;
+let size = 600;
 let mobile = false;
 
 let grid;

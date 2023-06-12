@@ -62,7 +62,9 @@ class Pig {
         push();
         translate(this.x*this.w+this.w/2, this.y*this.w+this.w/2);
 
-        image(images.pig, 0, 0, this.w, this.w);
+        if (this.x == this.gridSize-1 || this.y == this.gridSize-1) scale(-1, 1);
+        image(images.pig, 0, 0, this.w*0.95, this.w*0.95);
+        if (this.x == this.gridSize-1 || this.y == this.gridSize-1) scale(-1, 1);
 
         fill(palette.black);
         stroke(palette.light);
@@ -78,7 +80,8 @@ class Pig {
         text(this.type, 0, 0);
         fill(palette.light);
         if (this.fed) fill(palette.black);
-        text(this.want, this.w/2.8, -this.w/3.5);
+        if (this.x == this.gridSize-1 || this.y == this.gridSize-1) text(this.want, -this.w/2.8, -this.w/3.5);
+        else text(this.want, this.w/2.8, -this.w/3.5);
 
         pop();
     }
