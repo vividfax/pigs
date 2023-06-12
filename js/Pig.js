@@ -77,11 +77,11 @@ class Pig {
         noStroke();
         fill(palette.light);
         textSize(this.w/4);
-        text(this.type, 0, 0);
+        if (this.type > 0) text(this.type, 0, -this.w*0.06);
         fill(palette.light);
         if (this.fed) fill(palette.black);
-        if (this.x == this.gridSize-1 || this.y == this.gridSize-1) text(this.want, -this.w/2.8, -this.w/3.5);
-        else text(this.want, this.w/2.8, -this.w/3.5);
+        if (this.x == this.gridSize-1 || this.y == this.gridSize-1) text(this.want, -this.w/2.8, -this.w/3);
+        else text(this.want, this.w/2.8, -this.w/3);
 
         pop();
     }

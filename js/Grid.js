@@ -20,6 +20,8 @@ class Grid {
 
             this.grid.push(row);
         }
+
+        this.gameOver = false;
     }
 
     update() {
@@ -85,6 +87,47 @@ class Grid {
                     this.grid[i][j].setType(targetType);
                 }
             }
+        }
+
+        if (!this.gameOver) this.checkIfGameOver();
+    }
+
+    checkIfGameOver() {
+
+        let maxPig = -1;
+        let maxFood = -1;
+        let foodLeft = 0;
+
+        for (let i = 0; i < this.grid.length; i++) {
+            for (let j = 0; j < this.grid[i].length; j++) {
+
+                if (this.grid[i][j] instanceof Pig && maxPig < this.grid[i][j].want && !this.grid[i][j].fed) {
+                    maxPig = this.grid[i][j].want;
+                }
+
+                if (maxFood < this.grid[i][j].type) {
+                    maxFood = this.grid[i][j].type;
+                }
+
+                if (this.grid[i][j].type > 0) foodLeft++;
+            }
+        }
+
+        let matchesFood = false;
+        if (foodLeft > 1) matchesFood = true;
+
+        for (let i = 0; i < this.grid.length; i++) {
+            for (let j = 0; j < this.grid[i].length; j++) {
+
+                if (this.grid[i][j] instanceof Pig && maxFood == this.grid[i][j].want && !this.grid[i][j].fed) {
+                    matchesFood = true;
+                }
+            }
+        }
+
+        if (maxFood > maxPig || maxFood <= 0 || !matchesFood) {
+            this.gameOver = true;
+            newGameButton.style("display", "inline");
         }
     }
 

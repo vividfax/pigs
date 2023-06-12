@@ -12,7 +12,13 @@ let mobile = false;
 let grid;
 let images = {};
 
+let bagelFont;
+
+let newGameButton;
+
 function preload() {
+
+    bagelFont = loadFont("./fonts/BagelFatOne-Regular.ttf");
 
     images.pig = loadImage("./images/pig.png");
 
@@ -37,14 +43,16 @@ function setup() {
 
     setupTouchEvents();
     setupSwipe();
+    setupButtons();
 
     createCanvas(size, size);
     textAlign(CENTER, CENTER);
+    textFont(bagelFont);
     noStroke();
     imageMode(CENTER);
     rectMode(CENTER);
 
-    grid = new Grid();
+    newGame();
 }
 
 function draw() {
@@ -133,4 +141,18 @@ function setupSwipe() {
         direction: Hammer.DIRECTION_ALL
     });
     hammer.on("swipe", swiped);
+}
+
+function setupButtons() {
+
+    newGameButton = select("#new-game");
+    let buttonY = size/2;
+    newGameButton.style("transform", "translate(-50%,"+buttonY+"px)");
+    newGameButton.mousePressed(newGame);
+}
+
+function newGame() {
+
+    grid = new Grid();
+    newGameButton.style("display", "none");
 }
