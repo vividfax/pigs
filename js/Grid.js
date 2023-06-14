@@ -101,7 +101,7 @@ class Grid {
         for (let i = 0; i < this.grid.length; i++) {
             for (let j = 0; j < this.grid[i].length; j++) {
 
-                if (this.grid[i][j] instanceof Pig && maxPig < this.grid[i][j].want && !this.grid[i][j].fed) {
+                if (this.grid[i][j] instanceof Pig && maxPig < this.grid[i][j].want && !this.grid[i][j].fed && !this.grid[i][j].fake) {
                     maxPig = this.grid[i][j].want;
                 }
 
@@ -119,7 +119,7 @@ class Grid {
         for (let i = 0; i < this.grid.length; i++) {
             for (let j = 0; j < this.grid[i].length; j++) {
 
-                if (this.grid[i][j] instanceof Pig && maxFood == this.grid[i][j].want && !this.grid[i][j].fed) {
+                if (this.grid[i][j] instanceof Pig && maxFood == this.grid[i][j].want && !this.grid[i][j].fed && !this.grid[i][j].fake) {
                     matchesFood = true;
                 }
             }
