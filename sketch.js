@@ -74,13 +74,13 @@ function display() {
 
 function keyPressed() {
 
-    if (keyCode === UP_ARROW) {
+    if (keyCode === UP_ARROW || keyCode == 87) {
         grid.move("up");
-    } else if (keyCode === DOWN_ARROW) {
+    } else if (keyCode === DOWN_ARROW || keyCode == 83) {
         grid.move("down");
-    } else if (keyCode === LEFT_ARROW) {
+    } else if (keyCode === LEFT_ARROW || keyCode == 65) {
         grid.move("left");
-    } else if (keyCode === RIGHT_ARROW) {
+    } else if (keyCode === RIGHT_ARROW || keyCode == 68) {
         grid.move("right");
     }
 }
